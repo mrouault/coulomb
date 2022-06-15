@@ -1,0 +1,458 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm, amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{dsfont}
+\usepackage{bigints}
+\geometry{hmargin=2.5cm,vmargin=2.5cm}
+
+\newtheorem{thm}{Theorem}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{deft}{Definition}
+
+\title{Logbook}
+\author{Rouault Martin}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Useful links}
+
+\textbf{Here are some useful links for seminars, reading groups, workshops, or anything else that can help. Feel free to complete or update.}
+\vspace{0.5cm}
+
+\section{Seminars and reading groups}
+
+The diary of Laboratoire Paul Painlevé for seminars (e.g Probability and Statistics seminar, others might also be useful), colloquim or any other events: \href{https://math.univ-lille.fr/agenda/seminaires/}{https://math.univ-lille.fr/agenda/seminaires/}
+\vspace{0.5cm}
+
+The website and youtube channel of GDR MEGA. 
+
+\href{https://www.ceremade.dauphine.fr/dokuwiki/mega:start}{https://www.ceremade.dauphine.fr/dokuwiki/mega:start}
+
+\href{https://www.youtube.com/channel/UCuX3Q4SyM2pJaJFpm1cbuxA}{https://www.youtube.com/channel/UCuX3Q4SyM2pJaJFpm1cbuxA}
+\vspace{0.5cm}
+
+The Working Group on Point Processes and Applications : 
+
+\href{http://seminaire.univ-lille1.fr/taxonomy/term/41}{http://seminaire.univ-lille1.fr/taxonomy/term/41}
+\vspace{0.5cm}
+
+The Sigma team seminar :
+
+\href{http://seminaire.univ-lille1.fr/taxonomy/term/3}{http://seminaire.univ-lille1.fr/taxonomy/term/3}
+
+\section{Conferences}
+
+The website of the DDP-fermions workshop, to recover some talks / slides and the youtube channel associated : 
+
+\href{https://indico.in2p3.fr/event/25182/}{https://indico.in2p3.fr/event/25182/}
+
+\href{https://www.youtube.com/channel/UCWTGdDvUspO8F9JQo1tO-Ww}{https://www.youtube.com/channel/UCWTGdDvUspO8F9JQo1tO-Ww}
+\vspace{0.5cm}
+
+I think there might be some interesting talks at the end of June at this conference, I don't known if they will be recorded, it might be worth keeping a eye on this :
+
+\href{https://www2.helsinki.fi/en/conferences/probability-and-mathematical-physics}{https://www2.helsinki.fi/en/conferences/probability-and-mathematical-physics}
+\vspace{0.5cm}
+
+The same goes for Lluis Santalo School on Random and Deterministic Point Configurations :
+
+\href{https://www.ub.edu/Santalo22/}{https://www.ub.edu/Santalo22/}
+
+\section{Miscellaneous}
+
+I find Djalil Chafaï's blog interesting :
+
+\href{https://djalil.chafai.net/blog/}{https://djalil.chafai.net/blog/}
+
+
+\chapter{Meetings}
+
+\section{17/05/2022}
+
+\subsection*{Motivations and objectives}
+
+The first motivation comes from Serfaty's paper \cite{serfaty2020} on Gaussian Fluctuations for Coulomb Gases.
+
+We draw particles $x_1, ..., x_N \in \mathbb{R}^{d}$ from a Coulomb gas with external potential $V$, then the kind of result obtained by Serfaty is of the type : 
+
+\[\sqrt{N^{1+2/d} }\left[\frac{1}{N}\sum\limits_{i=1}^{N} f(x_i) - \int f d\mu_{eq}^{V}\right] \longrightarrow \mathcal{N}\left(0, \sigma_{f}^{2}\right)\]
+
+where $\mu_{eq}^{V}$ is the equilibrium measure of the particule system with external potential $V$. The convergence rate $\sqrt{N^{1+2/d}}$ is better than the one obtained in the classical Markov Chain Monte Carlo ($\sqrt{N}$). We wish to get this type of result with an asymptotic variance $\sigma_{f}^{2}$ scaling polynomially with the dimension $d$, as in Metropolis-Hastings' algorithm.
+
+Given a probability distribution $\pi$, we want to be able to chose a good external potential (if it exists) $V$ to get $d\mu_{eq}^{V} = d\pi$ i.e to invert the equilibrium measure, for instance in the framework of Bayesian statistics where we only known $\pi$ up to a multiplicative constant. We thus need to investigate the connection $V \leftrightarrow \mu_{eq}$.
+
+To do this, we may use tools from potential theory (that investigates point configurations of charged particules in a given potential). We might also have to prove results on the largest possible set of measures and generalize through approximation results. To begin, we can restrict ourselves to easy interaction potential such as Coulomb gases, and to easier sets of measures such as radial measures.
+
+\subsection*{Some readings to begin}
+
+Sylvia Serfaty's paper \cite{serfaty2020} on Gaussian Fluctuations for Coulomb Gases at Any Temperature is quite technical so this isn't the best one to start, but it can be useful in the future, here is the arXiv link : \href{https://arxiv.org/abs/2003.11704v5}{https://arxiv.org/abs/2003.11704v5}.
+\vspace{0.5cm}
+
+A good starting point is the paper by Chafaï, Gozlan and Zitt \cite{chafai-gozlan-zitt} on First-Order Asymptotics for Confined Particles with Singular Pair Repulsion. They prove a large deviation result to get a first-order convergence of the particle system under Riesz interaction potential (more general than Coulomb interaction potential). To begin, I should stick to the Coulomb case, with a careful look at the hypotheses, and with a focus on the results dealing with inverting the equilibrium measure. Moreover there are special results for radial measures, I should check the so-called \textbf{Poisson-Jensen} formula that may help to do some computations.
+
+\textbf{See \ref{Chafaï-Gozlan-Zitt} for a presentation of this paper.}
+
+Here is the link of the paper : \href{https://projecteuclid.org/journals/annals-of-applied-probability/volume-24/issue-6/First-order-global-asymptotics-for-confined-particles-with-singular-pair/10.1214/13-AAP980.full}{https://projecteuclid.org/journals/annals-of-applied-probability/volume-24/issue-6/First-order-global-asymptotics-for-confined-particles-with-singular-pair/10.1214/13-AAP980.full}
+\vspace{0.5cm}
+
+The book "Logarithmic Potentials with External Fields" by Saff \& Totik \cite{saff-totik} is a good introduction to Potential theory that may be useful, and they deal rigorously with some old results. The first chapter investigates the so-called \textbf{Euler-Lagrange} equations which give a characterization of the equilibrium measure. The beginning of the second chapter might be useful, and the same goes for the fifth chapter. I should also look at the fourth chapter which may contain some useful exercices. The book can be downloaded on the official website : \href{https://link.springer.com/book/10.1007/978-3-662-03329-6}{https://link.springer.com/book/10.1007/978-3-662-03329-6}
+\vspace{0.5cm}
+
+
+Finally, the talks given by Matthieu Lewin and Sylvia Serfaty at GDR MEGA are good introductions to the topic. The first one is more focused on statistical mechanics and the construction of limits processes for Coulomb and Riesz gases. The second one is more technical and focuses on Gaussian fluctuations for Coulomb Gases. Here are the links : 
+
+Matthieu Lewin : \href{https://www.youtube.com/watch?v=htNwdbTcjaU\&t=4181s}{https://www.youtube.com/watch?v=htNwdbTcjaU\&t=4181s}
+
+Sylvia Serfaty : \href{https://www.youtube.com/watch?v=VWVXBRggdnE}{https://www.youtube.com/watch?v=VWVXBRggdnE}
+
+
+
+
+\section{Lyon DPP-fermions workshop, 07/06/2022}\label{meet:0706}
+
+\subsection*{Current state}
+
+We went for two weeks to the DPP-Fermions workshop in Lyon, it was a great introduction to topics on Coulomb gases, Determinant Point Processes, and their links with quantum physics with great people. I should keep in mind some of the talks and mini-courses we had as some of them might provide ideas as discussed later. It could maybe be useful to pass my written notes in LATeX.
+\vspace{0.5cm}
+
+As discussed in the previous meeting, I saw Matthieu Lewin's and Sylvia Serfaty's talk at the GDR MEGA. We discussed quickly the different frameworks in which each one of them work. I think I should write some quick summary of it to have the mind clear on these things. \textbf{We also had the doubt wether the characterization given by Sylvia Serfaty for the equilibrium measure in the Coulomb case holds true only for $d = 2$ or also for $d \geq 3$ ?} :
+
+\[ \mu_{eq} = \frac{\Delta V}{c_d} \mathds{1}_{\Sigma}\]
+
+where $c_d$ is a constant depending on $d$ and $\Sigma$ is the compact support of $\mu$. This would mean that once we have the support, chosing $V$ amounts to solve a second order PDE.
+\vspace{0.5cm}
+
+I have also read the paper by Chafaï-Gozlan-Zitt on First-Order Asymptotics for Riesz Gases \cite{chafai-gozlan-zitt}, and I presented to you what I understood of it and the main results we can use. I wrote a recap of it here \ref{Chafaï-Gozlan-Zitt}.
+\vspace{0.5cm}
+
+I began to read the book on Potential Theory by Saff \& Totik.
+
+
+\subsection*{Next objectives or options}
+
+\textbf{Here are some first questions we can try to answer.} 
+\vspace{0.5cm}
+
+What information do we really need on $V$ to sample according to $\mu$ ? For instance we can think of knowing $V$ up to a constant, or knowning only its gradient, or gradient of $log\, V$. In the same direction, on which assumption on the density of $\mu$ we can recover the radial function $v$ in the Coulomb radial case where Chafaï-Gozlan-Zitt proved their result ?
+\vspace{0.5cm}
+
+
+In Chafaï-Gozlan-Zitt's result for Coulomb gases and radial potential, we can try to recover the functions $v$ and $w$ (see \ref{Chafaï-Gozlan-Zitt}) of the potential, and we can try to see which kind of $v$ and $w$ should we chose to get a known easy support (for instance $B(0, 1)$ instead of the ring $\{x : r_0 \leq |x| \leq R_0\}$).
+\vspace{0.5cm}
+
+\textbf{We can also consider the following developments.}
+\vspace{0.5cm}
+
+To get the support of $\mu$ in the radial Coulomb case, as we know that it should be a ring, we can try to make use of the single ring theorem.
+\vspace{0.5cm}
+
+If we are in dimension $d = 2$, the gradient of the potential $U^{\mu}(x)$, which is linked to the gradient of the external field $V$ according to \ref{Chafaï-Gozlan-Zitt},  corresponds to the Stieljes transform of $\mu$. We can investigate the measures $\mu$ for which the Stieljes transform is "nice" / easy (for instance when it is the free-sum of two measures). For more information, I should also check the subordination equations / functions. Here are some references : Tarrahou-Arizmendi-Vargas / Belinschi-Bercoinci. For the Riesz case we should investigate more about the fractionnal Laplacian (Simona Rota-Nodari spoke very quickly of this at the end of her talk in the DPP-fermion workshop, see the useful links to recover the slides and the links that may be useful).
+\vspace{0.5cm}
+
+Gaultier Lambert's mini-course at the DPP-fermion workshop seems also to be of interest and might be helpful, so this it is worth keeping his talks in mind (idem, see the useful links for the links, I will try to pass my written notes to LATeX), and maybe giving a look at his paper.
+
+
+
+\subsection*{Useful readings}
+
+I should continue reading Saff \& Totik \cite{saff-totik} to explore the known links between external potential $V$ and equilibrium $\mu_{eq}$. I am still currently reading Chapter 1.
+\vspace{0.5cm}
+
+Mylene sent us a new recent paper by Chafaï-Saff-Womersley \cite{chafai-saff-womersley} studying the equilibrium measure and its support for a Riesz gas in a particular dimension and with a given external field. It could be a good idea to have a look at it. Here is the link : \href{https://arxiv.org/abs/2206.04956}{https://arxiv.org/abs/2206.04956}
+
+
+
+
+
+
+\chapter{Readings}
+
+\section{Chafaï-Gozlan-Zitt, First Order Asymptotics}\label{Chafaï-Gozlan-Zitt}
+
+\subsection{Framework}
+
+These notes are based on the paper "First-order global asymptotics for confined particles with singular pair repulsion" by Chafaï, Gozlan and Ziit. \cite{chafai-gozlan-zitt}
+
+The goal is to study the behaviour of a system of $N$ particles $x_1, ..., x_N \in \mathbb{R}^{d}$ when $N$ grows to infinity. Here $d$ is the ambient dimension of the particles. The particles are subject to an external/confining potential $V : \mathbb{R}^{d} \longmapsto \mathbb{R}$ and to an interaction potential $W : \mathbb{R}^{d} \times \mathbb{R}^{d} \longmapsto \left(-\infty, +\infty\right]$ such that for all $x \neq y \in \mathbb{R}^{d}$, we have $W(x, y) = W(y, x) < \infty$.
+
+We define the energy of the system :
+\begin{align*}
+    H_{N}\left(x_1, ..., x_N\right) =& \frac{1}{N}\sum\limits_{i =1}^{N} V(x_i) + \frac{1}{N^2}\sum\limits_{i < j} W(x_i, x_j)\\
+    =& \int_{\mathbb{R}^{d}} V(x) \,d\mu_{N}(x) + \frac{1}{2} \int_{\{x, y \in \mathbb{R}^{d}\times \mathbb{R}^{d} : x \neq y\}} W(x, y)\, d\mu_{N}(x) d\mu_{N}(y) 
+\end{align*}
+
+where $\mu_{N}$ is the empirical measure $\frac{1}{N}\sum\limits_{i=1}^{N} \delta_{x_i}$. We then define the probability distribution according to which the particle system is distributed, i.e the so-called Boltzmann-Gibbs distribution :
+\[dP_{N}(x_1, ..., x_N) = \frac{1}{Z_{N, \beta_{N}}} \exp{\left(-\beta_{N} H_{N}(x_1, ..., x_N)\right)}\,d\,x_{1}....\,d\,x_{N}\]
+where $Z_{N, \beta_{N}} = \bigintss_{\left(\mathbb{R}^{d}\right)^{N}} \exp{\left(-\beta_{N} H_{N}(x_1, ..., x_N)\right)}\,d\,x_{1}....\,d\,x_{N}$ and $\beta_{N} \underset{N \longrightarrow \infty}{\longrightarrow} \infty$. Note that it requires some assumptions (which will be given later) for $P_{N}$ to be well defined as a probability measure.
+\vspace{0.5cm}
+
+In this framework, Chafaï, Gozlan and Zitt prove a large deviation result for the empirical measure $\mu_{N}$ under some assumptions. A more specific framework is the case of Coulomb and Riesz interaction, where the interaction potential is given by $W(x, y) = k(y - x)$ with :
+
+\begin{align*}
+    k(x) = k_{\Delta}(x) = \left\{\begin{array}{c}
+	-\lvert x \rvert \text{  if $d = 1$}\\
+	- \log \lvert x \rvert  \text{  if $d = 2$}\\
+ 	1/\lvert x \rvert^{d-2} \text{  if $d \geq 3$}
+\end{array}\right.
+\end{align*}
+in the Coulomb case, and $k(x) = k_{\alpha}(x) = 1/\lvert x\rvert^{d-\alpha}$ in the Riesz case, with $0 < \alpha < d$ and $d\geq 1$. This corresponds to repulsive particle systems. In this case, Chafaï, Gozlan and Zitt obtain in addition a useful characterization of the equilibrium measure (i.e the limit measure of $\mu_{N}$) called the Euler-Lagrange variational characterization. Finally, they compute the exact support and density of the equilibrium measure in the Coulomb case for $d\geq 3$ for a radial external potential $V$, and obtain also under some assumptions a formulation of the external potential $V$ in terms of the equilibrium measure $\mu_{eq}$ in the general Riesz case.
+\vspace{0.5cm}
+
+Note that the Boltzmann-Gibbs distribution is indeed of interest for a particle system as it is the one minimizing the free energy of the canonical ensemble (see Matthieu Lewin's talk at GDR MEGA). Note also that the Coulomb kernel $k_{\Delta}$ can be viewed as the fundamental solution of the Laplace equation : $-c \Delta k_{\Delta} = \delta_{0}$ for some constant $c$ depending on the dimension. The same goes for the Riesz kernel which solves a fractional Laplace equation $-c_{\alpha} \Delta_{\alpha} k_{\alpha} = \delta_{0}$, where $c_{\alpha}$ is a constant and $\Delta_{\alpha} f = -4\pi^{2} \mathcal{F}^{-1}\left(\lvert \xi\rvert^{\alpha} \mathcal{F}(f)\right)$. Here $\mathcal{F}$ is the Fourier transform, and we see that in the Coulomb case ($\alpha = 2$) we retrieve the classical Laplacian. This analogous definition is due to the fact that $\mathcal{F}(k_{\alpha})(\xi) = \frac{1}{c_{\alpha} 4\pi^{2}\lvert \xi\rvert^{\alpha}}$.
+
+\subsection{Equilibrium Measure and Large Deviations}
+
+We first begin by giving the assumptions made for $P_{N}$ to be well defined as a probability distribution : 
+\vspace{0.5cm}
+
+\textbf{(H1)} $W$ is continuous, symmetric, with finite values outside the diagonal $\{x, y \in \mathbb{R}^{d} \times \mathbb{R}^{d} : x = y\}$ and for all compact $K \subset \mathbb{R}^{d}$, $z\in \mathbb{R}^{d} \longmapsto \sup\{W(x, y) : \lvert x - y \rvert \geq \lvert z \rvert, x, y \in K\}$ is locally integrable on $\mathbb{R}^{d}$ with respect to the Lebesgue measure.
+\vspace{0.5cm}
+
+\textbf{(H2)}  $V$ is continuous, $\underset{\lvert x \rvert \longrightarrow + \infty}{\lim} V(x) = +\infty$ and $\bigintss_{\mathbb{R}^{d}} \exp\left(-V(x)\right)\,d\,x < \infty$.
+\vspace{0.5cm}
+
+\textbf{(H3)} There exists $c\in \mathbb{R}$ and $\epsilon_0 \in (0, 1)$ such that for every $x, y \in \mathbb{R}^{d}$, we have the following domination : $W(x, y) \geq c - \epsilon_0 (V(x) + V(y))$
+\vspace{0.5cm}
+
+(H1) is not necessary to define $P_{N}$ but will be anyway assumed to obtain the forthcoming results. The technical integrability condition is for instance used to show that the rate function in the large deviation principle is finite for every measure dominated by the Lebesgue measure.
+
+(H2) corresponds to some common assumptions to ensure the existence of a minimizer for $V$ and to prove lower semi-continuity for functionals of the type $\mu \longmapsto \bigintss V\,d\mu$. The second part of the assumption, together with (H3), enables to dominate the density of $P_{N}$ in the following meaning : if $\beta_{N} > 0$, $\beta_{N} \underset{N \longrightarrow \infty}{\longrightarrow} \infty$ and (H2)-(H3) are satisfied, there exists $N_{0}(\epsilon_{0}) \in \mathbb{N}$ such that for any $N \geq N_0(\epsilon_0)$, $Z_{N, \beta_{N}} < \infty$, i.e $P_{N}$ is well defined for $N$ sufficiently large. 
+\vspace{0.5cm}
+
+We now introduce the energy candidate for the rate function of the large deviation principle. We consider the following generalization of $H_{N}$, $I : \mathcal{M}_{1}(\mathbb{R^{d}}) \longrightarrow (- \infty, + \infty ]$ :
+
+\[I (\mu) = \int V\,d\mu + \frac{1}{2} \int \int W d\mu^{\otimes 2}\]
+
+To measure the deviations of $\mu_{N}$, we introduce the following Fortet-Mourier distance on $\mathcal{M}_{1}(\mathbb{R}^{d})$ which metrizes the weak topology : 
+
+\[d_{FM}(\mu, \nu) = \underset{\max (\lvert f \rvert_{\infty}, \lvert f \rvert_{Lip}) \leq 1}{\sup} \left\{ \int f\,d\mu - \int f\,d\nu\right\}\]
+
+To state the large deviation result, we finally need this last assumption :
+
+\textbf{(H4)} For all $\nu \in \mathcal{M}_{1}(\mathbb{R}^{d})$ of finite energy $I(\nu) < \infty$, there exists a sequence $(\nu_{n})_{n \in \mathbb{N}}$ of probability measures \textbf{absolutely continuous with respect to the Lebesgue measure} such that : $\nu_{n} \overset{(d)}{\longrightarrow} \nu$ and $I(\nu_{n}) \longrightarrow I(\nu)$.
+\vspace{0.5cm}
+
+Note that this hypothesis is only used to make the lower bound of the large deviation principle match with the upper bound, but it will anyway be satisfied for the Coulomb and Riesz cases. Here is a useful result on necessary conditions for (H4) :
+
+\begin{prop}[Sufficient conditions for (H4)]
+
+If $W$ is symmetric, finite outside the diagonal, and (H2)-(H3) hold true, then (H4) holds in each of the following cases :
+
+(1) $W$ is finite and continuous on $\mathbb{R}^{d}\times \mathbb{R}^{d}$
+
+(2) For all $x \in \mathbb{R}^{d}$, $y \longmapsto W(x, y)$ is superharmonic i.e for each $r > 0$ : \[W(x, y) \geq \frac{1}{\lvert B(y, r)\rvert} \int_{B(y, r)} W(x, z)\, dz\]
+
+(3) For all $x, y, a \in \mathbb{R}^{d}$, $W(x+a, y+a) = W(x, y)$ and $J : \mu \longmapsto \bigintss W(x, y) \,d\mu(x)\,d\mu(y)$ is convex on the set of compactly supported probability measures.
+\end{prop}
+
+We also state the following lemma that leads to the large deviation principle, denoting by $I_{\star}(\mu)$ the rate function $I(\mu) - \underset{\mathcal{M}_{1}(\mathbb{R}^{d})}{\inf} I$ :
+
+\begin{lem}[Properties of the rate function]
+
+Under (H1)-(H3) :
+
+(1) $I_{\star}$ is well defined,
+
+(2) If $I_{\star}(\mu) < \infty$ then $\bigintss \lvert V\rvert d\mu < \infty$ and $\bigintss \lvert W\rvert d\mu^{\otimes 2} < \infty$,
+
+(3) $I_{\star}(\mu) < \infty$ for any compactly supported probability $\mu$ with a bounded density with respect to the Lebesgue measure,
+
+(4) The level sets $\{I_{\star} \leq k\}$ are compact (so $I_{\star}$ is lower semi-continuous).
+\end{lem}
+
+We can now state the large deviation result :
+
+\begin{thm}[Large deviation principle]\label{cgz:ldp}
+
+    Assume that $\beta_{N} \gg N\log(N)$.
+    
+    (1) If (H1)-(H3) hold, then $I$ has compact level set (and is thus lower semi-continuous) and $\underset{\mathcal{M}_{1}(\mathbb{R}^{d})}{\inf} I > - \infty$. In addition, for all Borel set $A \subset \mathcal{M}_{1}(\mathbb{R}^{d})$ : 
+    \[-\underset{\mu \in int(A), \mu \ll Lebesgue}{\inf} I_{\star}(\mu) \leq \underset{N \longrightarrow\infty}{\lim \inf} \frac{\log P_{N}(\mu_{N} \in A)}{\beta_{N}}\leq \underset{N \longrightarrow\infty}{\lim \sup} \frac{\log P_{N}(\mu_{N} \in A)}{\beta_{N}} \leq -\underset{\mu \in clo(A)}{\inf} I_{\star}(\mu)\]
+    
+    (2) If moreover (H4) holds, for all Borel set $A \subset \mathcal{M}_{1}(\mathbb{R}^{d})$ : 
+    \[-\underset{\mu \in int(A)}{\inf} I_{\star}(\mu) \leq \underset{N \longrightarrow\infty}{\lim \inf} \frac{\log P_{N}(\mu_{N} \in A)}{\beta_{N}}\leq \underset{N \longrightarrow\infty}{\lim \sup} \frac{\log P_{N}(\mu_{N} \in A)}{\beta_{N}} \leq -\underset{\mu \in clo(A)}{\inf} I_{\star}(\mu)\]
+    
+    (3) Under (H1)-(H4), let $I_{\min} = \{\mu \in \mathcal{M}_{1}(\mathbb{R}^{d}) : I_{\star}(\mu) = 0\} \neq \emptyset$. If $(\mu_{N})_{N \in mathbb{N}}$ are built on the same probability space, using Borel-Cantelli's lemma :
+    \[\underset{N \longrightarrow \infty}{\lim} d_{FM}(\mu_{N}, I_{\min}) = 0 \text{  almost surely.}\]
+\end{thm}
+
+As a consequence, if $I_{\min} = \{\mu_{\star}\}$ (in that case it should be mentionned that (H4) only needs to hold for $\mu_{\star}$), $\mu_{N} \overset{(d)}{\longrightarrow} \mu_{\star}$ almost surely. $\mu_{\star}$ is called the equilibrium measure. Note that the upper bound only needs $\beta_{N} \gg N$. To safisfy $\beta_{N} \gg N\log(N)$ one can have in mind to take $\beta_{N} = N^{2}$ for instance or $\beta_{N} = N^{1+2/d}$ (see Sylvia Serfaty's paper \cite{serfaty2020}).
+
+
+\subsection{Reminders on Potential Theory and the Riesz case}
+
+We now go to the more specific case of Coulomb and Riesz gases which is our interest. In that case, we get in addition of the previous theorem the unicity and a characterization of the equilibrium measure. We first need to introduce some notions of potential theory. \textbf{From now on, the paper only considers the framework $d \geq 3$.}
+
+\begin{deft} 
+
+Let $0 < \alpha < d$. We define the potential of a probability measure $\mu \in \mathcal{M}_{+}(\mathbb{R}^{d})$ as the function $U_{\alpha}^{\mu} : \mathbb{R}^{d} \longrightarrow [0, +\infty]$ with
+
+\[U_{\alpha}^{\mu}(x) = (k_{\alpha} \star \mu)(x) = \int k_{\alpha}(x-y)\,d\mu(y)\]
+\end{deft}
+
+Note that $U_{\alpha}^{\mu}$ is solution to $-c_{\alpha} \Delta_{\alpha} U_{\alpha}^{\mu} = (-c_{\alpha} \Delta_{\alpha} k_{\alpha})\star \mu = \mu$.
+
+\begin{deft}
+
+We define the interaction energy as the quadratic functional $J_{\alpha} : \mathcal{M}_{+}(\mathbb{R}^{d})$ with 
+
+\[J_{\alpha}(\mu) = \int U_{\alpha}^{\mu}\,d\mu\]
+\end{deft}
+
+We thus have $I(\mu) = \bigintss V\,d\mu + J_{\alpha}(\mu)$ and the following properties.
+
+\begin{lem}[Properties of the interaction energy]
+
+(1) For any $\mu \in \mathcal{M}_{+}(\mathbb{R}^{d})$, $J_{\alpha}(\mu) \geq 0$ with equality if and only if $\mu = 0$.
+
+(2) $J_{\alpha}$ is strictly convex on $\mathcal{M}_{+}(\mathbb{R}^{d})$.
+
+(3) $\mathcal{E}_{\alpha, +} = \{\mu \in  \mathcal{M}_{+}(\mathbb{R}^{d}) : J_{\alpha}(\mu) < \infty\}$ is a convex cone.
+
+(4) $J_{\alpha}$ is lower semi-continuous on $\mathcal{E}_{\alpha, +}$ for the vague topology (defined by duality with respect to the continuous function compactly supported).
+\end{lem}
+
+Finally we define and give a characterization of "zero-capacity" sets.
+
+\begin{deft}
+
+Let $K$ be any compact set and $W_{\alpha}(K) = \inf \{J_{\alpha}(\nu) : \nu \in \mathcal{M}_{+}(\mathbb{R}^{d}) \cup \mathcal{E}_{\alpha, +}$ and $supp(\nu) \subset K$\}, i.e the infimum interaction energy among all the distributions with finite energy supported on $K$. We have $W_{\alpha}(K) \in (0, \infty]$ and $C_{\alpha}(K) = 1/W_{\alpha}(K)$ is called the capacity of $K$.
+\vspace{0.5cm}
+
+For a general set $A \subset \mathbb{R}^{d}$, we define the inner capacity by $C_{\alpha}(A)  = \sup\{C_{\alpha}(K), K \subset A$ compact\} and the outer capacity by $\overline C_{\alpha}(A) = \inf \{C_{\alpha}(O), A \subset O, O$ open\}.
+\end{deft}
+
+We see that a compact set $K$ has zero-capacity if and only if there is no positive measure with finite interaction energy supported on $K$ (hence we shouldn't care much about what happens on a zero-capacity compact set).  We have the following generalization for Borel sets.
+
+\begin{prop}
+
+(1) For a Borel set $A$, the outer and inner capacity coincide, and we call them the capacity of $A$.
+
+(2) A Borel set $A$ has zero capacity if and only if for any measure of finite interaction energy $\nu$, $\nu(A) = 0$.
+
+In particular if $C_{\alpha}(A) > 0$, there exists a compact $K \subset A$ and a probability measure $\nu$ of finite energy such that $supp(\nu) \subset K$.
+\end{prop}
+
+\begin{deft}
+
+A property $P(x)$ is said to hold quasi-everywhere (q.e) if the set $A = \{x : P(x)$ is false\} has zero outer capacity.
+\end{deft}
+
+A quasi-everywhere property is thus an analogous of an almost everywhere property for every finite interaction measure.
+\vspace{0.5cm}
+
+We can now state the specific convergence result and characterization for Riesz (and in particular Coulomb) interactions.
+
+\begin{thm}[Equilibrium measure for Riesz gases]\label{cgz-riez}
+
+If $d \geq 3$, $0 < \alpha < d$, $\beta_{N} \gg N \log(N)$ and $W$ is the Riesz kernel $W(x, y) = k_{\alpha}(y-x)$, we have :
+
+(1) $I$ is strictly convex where it is finite,
+
+(2) There exists a unique $\mu_{\star} \in \mathcal{M}_{1}(\mathbb{R}^{d})$ called the equilibrium measure, such that $I(\mu_{\star}) = \underset{\mu \in \mathcal{M}_{1}(\mathbb{R}^{d})}{\inf} I(\mu)$.
+
+(2) (H1) and (H4) are satisfied so Theorem \ref{cgz:ldp} applies (if (H2) holds true) : if we define $(\mu_{N})_{N \in \mathbb{N}}$ on a unique probability space, then :
+\[\mu_{N} \overset{(d)}{\underset{N \longrightarrow + \infty}{\longrightarrow}} \mu_{\star} \text{  almost surely}\]
+
+(3) The equilibrium measure has compact support, and denoting by $C_{\star} = \bigintss \left( U_{\alpha}^{\mu_{\star}} + V\right)\,d\mu_{\star}$ its energy, it satisfies the Euler-Lagrange equations :
+
+\begin{align*}
+U_{\alpha}^{\mu_{\star}}(x) + V(x) \geq C_{\star} & \text{  quasi-everywhere}\\
+U_{\alpha}^{\mu_{\star}}(x) + V(x) = C_{\star} & \text{  for all } x\in supp(\mu_{\star}) 
+\end{align*}
+
+(4) If $\mu$ is a compactly supported probability measure such that for some $C \in \mathbb{R}$, $\mu$ satisfies the Euler-Lagrange equations :
+
+\begin{align*}
+U_{\alpha}^{\mu}(x) + V(x) \geq C & \text{  quasi-everywhere}\\
+U_{\alpha}^{\mu}(x) + V(x) = C & \text{  for all } x\in supp(\mu) 
+\end{align*}
+
+then $\mu = \mu_{\star}$ and $C = C_{\star}$.
+
+\end{thm}
+
+The proofs rely heavily on the properties of $\Psi (t) = I((1-t)\mu + t\nu)$ for well chosen measures finite energy $\mu$ and $\nu$ and for $t \in [0, 1]$. In fact, $\Psi$ is strictly convex when $\mu \neq \nu$ so $\Psi^{'}(1) > \Psi^{'}(0)$. Moreover by definition $\Psi'(0^{+}) \geq 0$ if $\mu = \mu_{\star}$ but we can compute the derivative. In fact, defining 
+\[J_{\alpha}(\mu, \nu) = \int U_{\alpha}^{\mu}(x)\,d\nu(x)\]
+we have the reprocity law $J_{\alpha}(\mu, \nu) = J_{\alpha}(\nu, \mu)$ and $J_{\alpha}(\mu, \mu) = J_{\alpha}(\mu)$. Since $J_{\alpha}$ is quadratic and $\mu \longmapsto\bigintss V\,d\mu$ is linear :
+
+\[\Psi(t) = \int V\,d\mu + t\int V\,d (\nu - \mu) +\frac{1}{2}\left(J_{\alpha}(\mu) + t^{2} J_{\alpha}(\nu - \mu) + 2t J_{\alpha}(\mu, \nu - \mu)\right)\]
+
+so we get :
+
+\[\Psi^{'}(t) = \int V\,d(\nu-\mu) +  t J_{\alpha}(\nu - \mu) + J_{\alpha}(\mu, \nu - \mu)\]
+
+considering measures for which the integrals make sense (for instance $\mu = \mu_{\star}$ and $\nu$ of finite energy).
+
+The last point is a useful result to find the equilibrium measure, or to link it with the external potential $V$ as we shall see.
+
+
+\subsection{Links between $\mu_{eq}$ and $V$}
+
+The first important consequence of the equilibrium measure's characterization is the following computation of $\mu_{\star}$ in the Coulomb case with radial external potential. We denote by $\sigma_d$ the surface of the unit sphere of $\mathbb{R}^{d}$ and by $\sigma_r$ the Lebesgue measure on the sphere of radius $r$.
+
+\begin{thm}[Equilibrium of a Coulomb gas with radial externial potential]\label{cgz:rad}
+
+Let $d \geq 3$, $\beta_{N} \gg N\log(N)$. Suppose that $W(x, y) = \beta k_{\Delta}(y-x)$ for some $\beta > 0$ and $V(x) = v(\lvert x \rvert)$ such that $v$ is two times differentiable, and either $v$ is convex or $w(r) = r^{d-1} v'(r)$ is increasing.
+
+We define $0 < r_0 < R_0$ by $w(R_0) = \beta (d-2)$ and $r_0 = \inf\{r > 0 : v'(r) > 0\}$.
+\vspace{0.5cm}
+
+Then, $\mu_{\star}$ is supported on the ring $\{x : r_0 \leq \lvert x \rvert \leq R_0\}$ and is absolutely continuous with respect to the Lebesgue measure $d\mu_{\star}(r) = M(r) \,d\sigma_{r}\,dr$, where :
+\[M(r) = \frac{w'(r)}{\beta (d-2)\sigma_{d} r^{d-1}}\mathds{1}_{[r_0, R_0]}(r)\]
+\end{thm}
+
+One way to prove this result is to express the potential $U^{\mu}$ using Gauss's averaging principle, and to tune the density $M$ to satisfy the Euler-Lagrange equations. The fact that this result is only shown for a Coulomb gas is due to the use of the following Gauss's averaging principle where no generalization seems to be known for the Riesz kernel.
+
+\begin{thm}[Gauss's averaging principle]
+In $\mathbb{R}^{d}$, $d\geq 3$ :
+
+\begin{align*}
+    \frac{1}{r^{d-1}\sigma_{d}}\int_{\partial B(0, r)} \frac{1}{\lvert x-y\rvert^{d-2}} d\sigma_{r}(y) =  \left\{\begin{array}{c}
+	\frac{1}{r^{d-2}}\text{  if } \lvert x \rvert < r,\\
+	\frac{1}{\lvert x\rvert^{d-2}}  \text{  if } \lvert x\rvert > r
+\end{array}\right.
+\end{align*}
+\end{thm}
+
+A specific case of theorem \ref{cgz:rad} is when $V(x) = \lvert x\rvert^{2}$. In that case, we see that $\mu_{\star}$ is the uniform distribution on $B\left(0, \left(\beta \frac{d-2}{2}\right)^{1/d}\right)$.
+\vspace{0.5cm}
+
+We conclude with a result of interest inverting the equilibrium measure in the general Riesz kernel 
+
+\begin{thm}[Inverting the equilibrium measure]\label{cgz:inv}
+
+Let $0 < \alpha < d$, $W(x, y) = k_{\alpha}(y-x)$ and $\mu_{\star}$ a probability measure compactly supported with density $f_{\star} \in \textbf{L}^{p}(\mathbb{R}^{d})$ with $p > d/\alpha$.
+
+Let the external potential 
+\[V(x) = - U_{\alpha}^{\mu_{\star}}(x) + \left[ \lvert x\rvert^{2} - R\right]_{+}\]
+
+where $R > 0$ is chosen such that $supp(\mu_{\star}) \subset B(0, R)$. Then $V$ and $W$ satisfy (H1)-(H4), theorem \ref{cgz-riez} applies and $\mu_{\star}$ is indeed the unique minimizer of the energy functional $I$.
+\end{thm}
+
+The proof relies on the Lagrange-Euler equations characterizing the equilibrium measure by definition of $V$. The assumptions on the density $f_{\star}$ are used to show that $U_{\alpha}^{\mu_{\star}}$ is continuous and finite on $\mathbb{R}^{d}$.
+
+
+\subsection{Remarks}
+
+As discussed in \ref{meet:0706}, it would be good to obtain a more natural formulation in Theorem \ref{cgz:rad} for the density and support of the equilibrium measure in the Coulomb case with radial external potential, to see more clearly how we can recover $v$ and $w$ and to tune the support we want. Moreover if we want to access to other type of equilibrium measure, we should try to bypass the use of Gauss's averaging principle in this way. We can also try to investigate a different characterization of the equilibrium measure than the Euler-Lagrange equations. The same goes for theorem \ref{cgz:inv}, it could be helpful to have more explicit expressions.
+\vspace{0.5cm}
+
+According to the authors, to recover equilibrium measures that are not compactly supported, one would need to allow weaker behaviors of $V$ at infinity.
+\vspace{0.5cm}
+
+Note that in theorem \ref{cgz:rad}, $R_0$ is indeed well defined as $w$ is $\mathcal{C}^{1}$ on $\mathbb{R}^{+}$, increasing, goes to infinity when $r$ goes to infinity and $w = 0$ until $r_0$.
+
+
+\bibliographystyle{alpha}
+\bibliography{ref}
+
+\end{document}
