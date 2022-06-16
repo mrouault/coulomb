@@ -157,7 +157,7 @@ To get the support of $\mu$ in the radial Coulomb case, as we know that it shoul
 If we are in dimension $d = 2$, the gradient of the potential $U^{\mu}(x)$, which is linked to the gradient of the external field $V$ according to \ref{Chafaï-Gozlan-Zitt},  corresponds to the Stieljes transform of $\mu$. We can investigate the measures $\mu$ for which the Stieljes transform is "nice" / easy (for instance when it is the free-sum of two measures). For more information, I should also check the subordination equations / functions. Here are some references : Tarrahou-Arizmendi-Vargas / Belinschi-Bercoinci. For the Riesz case we should investigate more about the fractionnal Laplacian (Simona Rota-Nodari spoke very quickly of this at the end of her talk in the DPP-fermion workshop, see the useful links to recover the slides and the links that may be useful).
 \vspace{0.5cm}
 
-Gaultier Lambert's mini-course at the DPP-fermion workshop seems also to be of interest and might be helpful, so this it is worth keeping his talks in mind (idem, see the useful links for the links, I will try to pass my written notes to LATeX), and maybe giving a look at his paper.
+Gaultier Lambert's mini-course at the DPP-fermion workshop seems also to be of interest and might be helpful, so this it is worth keeping his talks in mind (idem, see the useful links, I will try to pass my written notes to LATeX), and maybe giving a look at his paper.
 
 
 
@@ -181,7 +181,7 @@ Mylene sent us a new recent paper by Chafaï-Saff-Womersley \cite{chafai-saff-wo
 
 These notes are based on the paper "First-order global asymptotics for confined particles with singular pair repulsion" by Chafaï, Gozlan and Ziit. \cite{chafai-gozlan-zitt}
 
-The goal is to study the behaviour of a system of $N$ particles $x_1, ..., x_N \in \mathbb{R}^{d}$ when $N$ grows to infinity. Here $d$ is the ambient dimension of the particles. The particles are subject to an external/confining potential $V : \mathbb{R}^{d} \longmapsto \mathbb{R}$ and to an interaction potential $W : \mathbb{R}^{d} \times \mathbb{R}^{d} \longmapsto \left(-\infty, +\infty\right]$ such that for all $x \neq y \in \mathbb{R}^{d}$, we have $W(x, y) = W(y, x) < \infty$.
+The goal is to study the behaviour of a system of $N$ particles $x_1, ..., x_N \in \mathbb{R}^{d}$ when $N$ grows to infinity. Here $d$ is the ambient dimension of the particles. The particles are subject to an external/confining potential $V : \mathbb{R}^{d} \longrightarrow \mathbb{R}$ and to an interaction potential $W : \mathbb{R}^{d} \times \mathbb{R}^{d} \longrightarrow \left(-\infty, +\infty\right]$ such that for all $x \neq y \in \mathbb{R}^{d}$, we have $W(x, y) = W(y, x) < \infty$.
 
 We define the energy of the system :
 \begin{align*}
@@ -280,7 +280,7 @@ We can now state the large deviation result :
     (2) If moreover (H4) holds, for all Borel set $A \subset \mathcal{M}_{1}(\mathbb{R}^{d})$ : 
     \[-\underset{\mu \in int(A)}{\inf} I_{\star}(\mu) \leq \underset{N \longrightarrow\infty}{\lim \inf} \frac{\log P_{N}(\mu_{N} \in A)}{\beta_{N}}\leq \underset{N \longrightarrow\infty}{\lim \sup} \frac{\log P_{N}(\mu_{N} \in A)}{\beta_{N}} \leq -\underset{\mu \in clo(A)}{\inf} I_{\star}(\mu)\]
     
-    (3) Under (H1)-(H4), let $I_{\min} = \{\mu \in \mathcal{M}_{1}(\mathbb{R}^{d}) : I_{\star}(\mu) = 0\} \neq \emptyset$. If $(\mu_{N})_{N \in mathbb{N}}$ are built on the same probability space, using Borel-Cantelli's lemma :
+    (3) Under (H1)-(H4), let $I_{\min} = \{\mu \in \mathcal{M}_{1}(\mathbb{R}^{d}) : I_{\star}(\mu) = 0\} \neq \emptyset$. If $(\mu_{N})_{N \in \mathbb{N}}$ are built on the same probability space, using Borel-Cantelli's lemma :
     \[\underset{N \longrightarrow \infty}{\lim} d_{FM}(\mu_{N}, I_{\min}) = 0 \text{  almost surely.}\]
 \end{thm}
 
@@ -302,7 +302,7 @@ Note that $U_{\alpha}^{\mu}$ is solution to $-c_{\alpha} \Delta_{\alpha} U_{\alp
 
 \begin{deft}
 
-We define the interaction energy as the quadratic functional $J_{\alpha} : \mathcal{M}_{+}(\mathbb{R}^{d})$ with 
+We define the interaction energy as the quadratic functional $J_{\alpha} : \mathcal{M}_{+}(\mathbb{R}^{d}) \longrightarrow [0; + \infty]$ with 
 
 \[J_{\alpha}(\mu) = \int U_{\alpha}^{\mu}\,d\mu\]
 \end{deft}
@@ -346,7 +346,7 @@ In particular if $C_{\alpha}(A) > 0$, there exists a compact $K \subset A$ and a
 A property $P(x)$ is said to hold quasi-everywhere (q.e) if the set $A = \{x : P(x)$ is false\} has zero outer capacity.
 \end{deft}
 
-A quasi-everywhere property is thus an analogous of an almost everywhere property for every finite interaction measure.
+A quasi-everywhere property is thus an analogous of an almost everywhere property for every finite interaction energy measure.
 \vspace{0.5cm}
 
 We can now state the specific convergence result and characterization for Riesz (and in particular Coulomb) interactions.
@@ -426,7 +426,7 @@ In $\mathbb{R}^{d}$, $d\geq 3$ :
 A specific case of theorem \ref{cgz:rad} is when $V(x) = \lvert x\rvert^{2}$. In that case, we see that $\mu_{\star}$ is the uniform distribution on $B\left(0, \left(\beta \frac{d-2}{2}\right)^{1/d}\right)$.
 \vspace{0.5cm}
 
-We conclude with a result of interest inverting the equilibrium measure in the general Riesz kernel 
+We conclude with a result of interest inverting the equilibrium measure in the general Riesz kernel.
 
 \begin{thm}[Inverting the equilibrium measure]\label{cgz:inv}
 
