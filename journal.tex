@@ -75,7 +75,7 @@ I find Djalil Chafaï's blog interesting :
 
 \chapter{Meetings}
 
-\section{17/05/2022}
+\section{17/05/2022}\label{meet:1705}
 
 \subsection*{Motivations and objectives}
 
@@ -166,12 +166,43 @@ Gaultier Lambert's mini-course at the DPP-fermion workshop seems also to be of i
 I should continue reading Saff \& Totik \cite{saff-totik} to explore the known links between external potential $V$ and equilibrium $\mu_{eq}$. I am still currently reading Chapter 1.
 \vspace{0.5cm}
 
-Mylene sent us a new recent paper by Chafaï-Saff-Womersley \cite{chafai-saff-womersley} studying the equilibrium measure and its support for a Riesz gas in a particular dimension and with a given external field. It could be a good idea to have a look at it. Here is the link : \href{https://arxiv.org/abs/2206.04956}{https://arxiv.org/abs/2206.04956}
+Mylène sent us a new recent paper by Chafaï-Saff-Womersley \cite{chafai-saff-womersley} studying the equilibrium measure and its support for a Riesz gas in a particular dimension and with a given external field. It could be a good idea to have a look at it. Here is the link : \href{https://arxiv.org/abs/2206.04956}{https://arxiv.org/abs/2206.04956}
 
+\section{17/06/2022}
 
+\subsection*{Current state}
 
+Rémi had the question on the shape of a low or high capacity set (as defined in \ref{Chafai-Gozlan-Zitt}), and wether we could find a set with small Lebesgue measure and high capacity (for instance with a star-shaped set).
+\vspace{0.5cm}
 
+I have been reading the book on logarithmic potential theory \cite{saff-totik} to see what is known about the link between external potential and equilibrium measure, I am still on my way.
+\vspace{0.5cm}
 
+I presented to you quickly the main surprising results of Chafa\"i-Saff-Womersley \cite{chafai-saff-womersley} for the equilibrium measure in a specific Riesz case ($s = d - 4$) and Euclidean potential $V = \gamma \lvert . \rvert^{\alpha}$ with a phase transition at $\alpha^{\star} = 2$. Below $\alpha^{\star}$, the equilibrium measure is a mixture between a confined distribution in a ball and a uniform distribution on a sphere of this ball. Above this level, the equilibrium measure is only the uniform distribution on a sphere, for which the radius evolves with $\alpha$ and is minimal at $\alpha^{\star}$ (it decreases before $\alpha^{\star}$ and increases after). This is quite a surprising result, as when $\alpha$ grows we are increasing the confining strength. 
+
+\subsection*{New ideas / trails}
+
+I should dive more into the proofs of this result to understand what happens and wether the tools are the same that in \cite{chafai-gozlan-zitt}. In particular I shoud try to understand what happens at the transition near $\alpha = 2$. I should also have a look at their result about iterated Coulomb gases that seem to generalise $\mu_{eq} = \frac{\Delta V}{c_d} \mathds{1}_{\Sigma}$ (which is by the way true in any dimension $d$ to answer to \ref{meet:0706}). They also state some results coming from an another of their papers in the setting $s = d-3$ so it might be useful.
+\vspace{0.5cm}
+
+To get the equilibrium measure as the uniform measure on a compact set, Mylène suggested to use $\mu_{eq} = \frac{\Delta V}{c_d} \mathds{1}_{\Sigma}$ and to set the potential $V$ to be quadratic on this compact set and infinite elsewhere. I must check wether this satisfies all the hypothesis we need and wether the result indeed applies in this setting.
+\vspace{0.5cm}
+
+As the particle system is driven to the boundary of a sphere in \cite{chafai-saff-womersley}, we could hope to have the same phenomenon in a compact set for a well chosen potential (we can use the same idea as above). Rémi thus made a link with support estimation problems or with the computation of the volume of a closed convex set. A common algorithm to do this is a hit-and-run MCMC (I should check Levaz-Vempala for more information). Note that a similar phenomenon is explained by Matthieu Lewin in a arbitrary domain with no confining potential for the long range interaction $s < d$ (see his talk at MEGA and the useful readings).
+\vspace{0.5cm}
+
+Rémi suggested to implement at first a quick Langevin algorithm that moves all the points and accepts/rejects simultaneously to see what happens (I should check Chafa\"i-Ferré who made a sampler for Riesz gases with Langevin Monte Carlo or Hamiltonian Monte Carlo). The idea then would be to change the potential $U^{\mu_{\star}}$ by an empirical counterpart when we chose the potential $V$, and to do a MCMC for which the equilibrium measure at time $t$ is invariant at each step. We would thus change the points at each time (and so the external potential $V$) and approximate $\mu_{\star}$ by this dynamic. The initial set of points should be of importance.
+\vspace{0.5cm}
+
+Rémi also suggested to look at what happens when we have a non-radial pertubartion to the external potential $V$.
+
+\subsection*{Useful readings}
+
+Thibaut Vasseur told me about a new survey by Mathieu Lewin on Coulomb and Riesz gases \cite{Lewin_2022}. It might be useful to have more insights about what he presented during his talk at GDR MEGA (see \ref{meet:1705}), here is the link : 
+\href{https://arxiv.org/abs/2202.09240}{https://arxiv.org/abs/2202.09240}
+\vspace{0.5cm}
+
+Mylène told us that Satya Majumdar and Gregory Schehr worked on Coulomb gases with walls to change the equilibrium measure. It would be useful to check their bibliography on the topic when I have time.
 
 \chapter{Readings}
 
@@ -285,7 +316,6 @@ We can now state the large deviation result :
 \end{thm}
 
 As a consequence, if $I_{\min} = \{\mu_{\star}\}$ (in that case it should be mentionned that (H4) only needs to hold for $\mu_{\star}$), $\mu_{N} \overset{(d)}{\longrightarrow} \mu_{\star}$ almost surely. $\mu_{\star}$ is called the equilibrium measure. Note that the upper bound only needs $\beta_{N} \gg N$. To safisfy $\beta_{N} \gg N\log(N)$ one can have in mind to take $\beta_{N} = N^{2}$ for instance or $\beta_{N} = N^{1+2/d}$ (see Sylvia Serfaty's paper \cite{serfaty2020}).
-
 
 \subsection{Reminders on Potential Theory and the Riesz case}
 
